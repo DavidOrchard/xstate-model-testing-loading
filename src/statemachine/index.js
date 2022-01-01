@@ -27,7 +27,6 @@ export const machineDeclaration = {
           target: "failure"
         }
       },
-      entry: ["loadingEntryAction"],
       meta: {
         test: async ({ findByText, getByTestId }) => {
           expect(await findByText("loading")).toBeVisible();

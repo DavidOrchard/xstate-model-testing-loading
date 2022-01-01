@@ -6,10 +6,10 @@ import { act, render, cleanup } from "@testing-library/react";
 import { stateMachine, machineDeclaration } from "./index";
 import "@testing-library/jest-dom/extend-expect";
 
+// hack way to effect loading func.
+let value = true;
 const loading = async () => {
-  console.log("loading service");
-  // do something dynamic based upon a config
-  if (false) {
+  if (value) {
     return true;
   } else {
     throw new Error();
@@ -28,7 +28,12 @@ const TestComponent = () => {
   );
 };
 
-const stateMachineModel = createModel(xstate.createMachine(machineDeclaration));
+const stateMachineModel = createModel(
+  xstate.createMachine(machineDeclaration)
+).withEvents({
+  "done.invoke.loading": () => {}, // Promise.resolve(),
+  "error.platform.loading": () => {} // Promise.resolve(),
+});
 
 describe("StateMachine", () => {
   const testPlans = stateMachineModel.getShortestPathPlans();
@@ -38,6 +43,7 @@ describe("StateMachine", () => {
       afterEach(cleanup);
       plan.paths.forEach((path) => {
         it(path.description, async () => {
+          value = Object.keys(path.state.meta)[0] === "statemachine.success";
           // services require an await act, even if a findby is used inside meta
           await act(async () => {
             await path.test(render(<TestComponent />));
