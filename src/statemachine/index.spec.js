@@ -1,66 +1,36 @@
-import React from 'react';
-import * as xstate from 'xstate';
-import { useMachine } from '@xstate/react';
-import { createModel } from '@xstate/test';
-import { act, render, fireEvent, cleanup } from '@testing-library/react';
-import { stateMachine, machineDeclaration } from './index';
-import '@testing-library/jest-dom/extend-expect';
-
-const loadingEntryAction = jest.fn();
-const userSubmitAction = jest.fn();
+import React from "react";
+import * as xstate from "xstate";
+import { useMachine } from "@xstate/react";
+import { createModel } from "@xstate/test";
+import { act, render, cleanup } from "@testing-library/react";
+import { stateMachine, machineDeclaration } from "./index";
+import "@testing-library/jest-dom/extend-expect";
 
 const loading = async () => {
-  console.log('loading service');
-  throw new Error();
-  return false;
+  console.log("loading service");
+  // do something dynamic based upon a config
+  if (false) {
+    return true;
+  } else {
+    throw new Error();
+  }
 };
 
 const TestComponent = () => {
-  const [state, publish] = useMachine(stateMachine, {
-    services: {loading},
-    actions: {
-      loadingEntryAction,
-      userSubmitAction,
-    },
+  const [state] = useMachine(stateMachine, {
+    services: { loading }
   });
 
   return (
     <div>
       <p data-testid="current_state">{state.value}</p>
-      <button
-        onClick={() => {
-          publish('SUBMIT');
-        }}
-      >
-        SUBMIT
-      </button>
-      <button
-        onClick={() => {
-          publish('SUCCESS');
-        }}
-      >
-        SUCCESS
-      </button>
-      <button
-        onClick={() => {
-          publish('FAILURE');
-        }}
-      >
-        FAILURE
-      </button>
     </div>
   );
 };
 
-const stateMachineModel = createModel(xstate.createMachine(machineDeclaration)).withEvents({
-  SUCCESS: {
-    exec: ({ getByText }) => {
-      fireEvent.click(getByText('SUCCESS'));
-    },
-  },
-});
+const stateMachineModel = createModel(xstate.createMachine(machineDeclaration));
 
-describe('StateMachine', () => {
+describe("StateMachine", () => {
   const testPlans = stateMachineModel.getShortestPathPlans();
 
   testPlans.forEach((plan) => {
@@ -68,6 +38,7 @@ describe('StateMachine', () => {
       afterEach(cleanup);
       plan.paths.forEach((path) => {
         it(path.description, async () => {
+          // services require an await act, even if a findby is used inside meta
           await act(async () => {
             await path.test(render(<TestComponent />));
           });
