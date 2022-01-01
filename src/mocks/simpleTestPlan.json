@@ -1,0 +1,626 @@
+[
+    {
+      "state": {
+        "actions": [
+          {
+            "type": "xstate.start",
+            "activity": {
+              "id": "loading",
+              "src": {
+                "type": "loading"
+              },
+              "type": "xstate.invoke"
+            }
+          }
+        ],
+        "activities": {
+          "loading": {
+            "type": "xstate.start",
+            "activity": {
+              "id": "loading",
+              "src": {
+                "type": "loading"
+              },
+              "type": "xstate.invoke"
+            }
+          }
+        },
+        "meta": {
+          "statemachine.loading": {}
+        },
+        "events": [],
+        "value": "loading",
+        "_event": {
+          "name": "xstate.init",
+          "data": {
+            "type": "xstate.init"
+          },
+          "$$type": "scxml",
+          "type": "external"
+        },
+        "_sessionid": null,
+        "event": {
+          "type": "xstate.init"
+        },
+        "children": {
+          "loading": {
+            "id": "loading"
+          }
+        },
+        "done": false,
+        "changed": true
+      },
+      "paths": [
+        {
+          "state": {
+            "actions": [
+              {
+                "type": "xstate.start",
+                "activity": {
+                  "id": "loading",
+                  "src": {
+                    "type": "loading"
+                  },
+                  "type": "xstate.invoke"
+                }
+              }
+            ],
+            "activities": {
+              "loading": {
+                "type": "xstate.start",
+                "activity": {
+                  "id": "loading",
+                  "src": {
+                    "type": "loading"
+                  },
+                  "type": "xstate.invoke"
+                }
+              }
+            },
+            "meta": {
+              "statemachine.loading": {}
+            },
+            "events": [],
+            "value": "loading",
+            "_event": {
+              "name": "xstate.init",
+              "data": {
+                "type": "xstate.init"
+              },
+              "$$type": "scxml",
+              "type": "external"
+            },
+            "_sessionid": null,
+            "event": {
+              "type": "xstate.init"
+            },
+            "children": {
+              "loading": {
+                "id": "loading"
+              }
+            },
+            "done": false,
+            "changed": true
+          },
+          "segments": [],
+          "weight": 0,
+          "description": "via "
+        }
+      ],
+      "description": "reaches state: \"loading\" "
+    },
+    {
+      "state": {
+        "actions": [
+          {
+            "type": "xstate.stop",
+            "activity": {
+              "id": "loading",
+              "src": {
+                "type": "loading"
+              },
+              "type": "xstate.invoke"
+            }
+          }
+        ],
+        "activities": {
+          "loading": false
+        },
+        "meta": {
+          "statemachine.success": {}
+        },
+        "events": [],
+        "value": "success",
+        "_event": {
+          "name": "done.invoke.loading",
+          "data": {
+            "type": "done.invoke.loading"
+          },
+          "$$type": "scxml",
+          "type": "external"
+        },
+        "_sessionid": null,
+        "event": {
+          "type": "done.invoke.loading"
+        },
+        "historyValue": {
+          "current": "success",
+          "states": {}
+        },
+        "history": {
+          "actions": [
+            {
+              "type": "xstate.start",
+              "activity": {
+                "id": "loading",
+                "src": {
+                  "type": "loading"
+                },
+                "type": "xstate.invoke"
+              }
+            }
+          ],
+          "activities": {
+            "loading": {
+              "type": "xstate.start",
+              "activity": {
+                "id": "loading",
+                "src": {
+                  "type": "loading"
+                },
+                "type": "xstate.invoke"
+              }
+            }
+          },
+          "meta": {
+            "statemachine.loading": {}
+          },
+          "events": [],
+          "value": "loading",
+          "_event": {
+            "name": "xstate.init",
+            "data": {
+              "type": "xstate.init"
+            },
+            "$$type": "scxml",
+            "type": "external"
+          },
+          "_sessionid": null,
+          "event": {
+            "type": "xstate.init"
+          },
+          "children": {
+            "loading": {
+              "id": "loading"
+            }
+          },
+          "done": false,
+          "changed": true
+        },
+        "children": {
+          "loading": {
+            "id": "loading"
+          }
+        },
+        "done": false,
+        "changed": true
+      },
+      "paths": [
+        {
+          "state": {
+            "actions": [
+              {
+                "type": "xstate.stop",
+                "activity": {
+                  "id": "loading",
+                  "src": {
+                    "type": "loading"
+                  },
+                  "type": "xstate.invoke"
+                }
+              }
+            ],
+            "activities": {
+              "loading": false
+            },
+            "meta": {
+              "statemachine.success": {}
+            },
+            "events": [],
+            "value": "success",
+            "_event": {
+              "name": "done.invoke.loading",
+              "data": {
+                "type": "done.invoke.loading"
+              },
+              "$$type": "scxml",
+              "type": "external"
+            },
+            "_sessionid": null,
+            "event": {
+              "type": "done.invoke.loading"
+            },
+            "historyValue": {
+              "current": "success",
+              "states": {}
+            },
+            "history": {
+              "actions": [
+                {
+                  "type": "xstate.start",
+                  "activity": {
+                    "id": "loading",
+                    "src": {
+                      "type": "loading"
+                    },
+                    "type": "xstate.invoke"
+                  }
+                }
+              ],
+              "activities": {
+                "loading": {
+                  "type": "xstate.start",
+                  "activity": {
+                    "id": "loading",
+                    "src": {
+                      "type": "loading"
+                    },
+                    "type": "xstate.invoke"
+                  }
+                }
+              },
+              "meta": {
+                "statemachine.loading": {}
+              },
+              "events": [],
+              "value": "loading",
+              "_event": {
+                "name": "xstate.init",
+                "data": {
+                  "type": "xstate.init"
+                },
+                "$$type": "scxml",
+                "type": "external"
+              },
+              "_sessionid": null,
+              "event": {
+                "type": "xstate.init"
+              },
+              "children": {
+                "loading": {
+                  "id": "loading"
+                }
+              },
+              "done": false,
+              "changed": true
+            },
+            "children": {
+              "loading": {
+                "id": "loading"
+              }
+            },
+            "done": false,
+            "changed": true
+          },
+          "segments": [
+            {
+              "state": {
+                "actions": [
+                  {
+                    "type": "xstate.start",
+                    "activity": {
+                      "id": "loading",
+                      "src": {
+                        "type": "loading"
+                      },
+                      "type": "xstate.invoke"
+                    }
+                  }
+                ],
+                "activities": {
+                  "loading": {
+                    "type": "xstate.start",
+                    "activity": {
+                      "id": "loading",
+                      "src": {
+                        "type": "loading"
+                      },
+                      "type": "xstate.invoke"
+                    }
+                  }
+                },
+                "meta": {
+                  "statemachine.loading": {}
+                },
+                "events": [],
+                "value": "loading",
+                "_event": {
+                  "name": "xstate.init",
+                  "data": {
+                    "type": "xstate.init"
+                  },
+                  "$$type": "scxml",
+                  "type": "external"
+                },
+                "_sessionid": null,
+                "event": {
+                  "type": "xstate.init"
+                },
+                "children": {
+                  "loading": {
+                    "id": "loading"
+                  }
+                },
+                "done": false,
+                "changed": true
+              },
+              "event": {
+                "type": "done.invoke.loading"
+              },
+              "description": "state: \"loading\" "
+            }
+          ],
+          "weight": 1,
+          "description": "via done.invoke.loading"
+        }
+      ],
+      "description": "reaches state: \"success\" "
+    },
+    {
+      "state": {
+        "actions": [
+          {
+            "type": "xstate.stop",
+            "activity": {
+              "id": "loading",
+              "src": {
+                "type": "loading"
+              },
+              "type": "xstate.invoke"
+            }
+          }
+        ],
+        "activities": {
+          "loading": false
+        },
+        "meta": {
+          "statemachine.failure": {}
+        },
+        "events": [],
+        "value": "failure",
+        "_event": {
+          "name": "error.platform.loading",
+          "data": {
+            "type": "error.platform.loading"
+          },
+          "$$type": "scxml",
+          "type": "external"
+        },
+        "_sessionid": null,
+        "event": {
+          "type": "error.platform.loading"
+        },
+        "historyValue": {
+          "current": "failure",
+          "states": {}
+        },
+        "history": {
+          "actions": [
+            {
+              "type": "xstate.start",
+              "activity": {
+                "id": "loading",
+                "src": {
+                  "type": "loading"
+                },
+                "type": "xstate.invoke"
+              }
+            }
+          ],
+          "activities": {
+            "loading": {
+              "type": "xstate.start",
+              "activity": {
+                "id": "loading",
+                "src": {
+                  "type": "loading"
+                },
+                "type": "xstate.invoke"
+              }
+            }
+          },
+          "meta": {
+            "statemachine.loading": {}
+          },
+          "events": [],
+          "value": "loading",
+          "_event": {
+            "name": "xstate.init",
+            "data": {
+              "type": "xstate.init"
+            },
+            "$$type": "scxml",
+            "type": "external"
+          },
+          "_sessionid": null,
+          "event": {
+            "type": "xstate.init"
+          },
+          "children": {
+            "loading": {
+              "id": "loading"
+            }
+          },
+          "done": false,
+          "changed": true
+        },
+        "children": {
+          "loading": {
+            "id": "loading"
+          }
+        },
+        "done": false,
+        "changed": true
+      },
+      "paths": [
+        {
+          "state": {
+            "actions": [
+              {
+                "type": "xstate.stop",
+                "activity": {
+                  "id": "loading",
+                  "src": {
+                    "type": "loading"
+                  },
+                  "type": "xstate.invoke"
+                }
+              }
+            ],
+            "activities": {
+              "loading": false
+            },
+            "meta": {
+              "statemachine.failure": {}
+            },
+            "events": [],
+            "value": "failure",
+            "_event": {
+              "name": "error.platform.loading",
+              "data": {
+                "type": "error.platform.loading"
+              },
+              "$$type": "scxml",
+              "type": "external"
+            },
+            "_sessionid": null,
+            "event": {
+              "type": "error.platform.loading"
+            },
+            "historyValue": {
+              "current": "failure",
+              "states": {}
+            },
+            "history": {
+              "actions": [
+                {
+                  "type": "xstate.start",
+                  "activity": {
+                    "id": "loading",
+                    "src": {
+                      "type": "loading"
+                    },
+                    "type": "xstate.invoke"
+                  }
+                }
+              ],
+              "activities": {
+                "loading": {
+                  "type": "xstate.start",
+                  "activity": {
+                    "id": "loading",
+                    "src": {
+                      "type": "loading"
+                    },
+                    "type": "xstate.invoke"
+                  }
+                }
+              },
+              "meta": {
+                "statemachine.loading": {}
+              },
+              "events": [],
+              "value": "loading",
+              "_event": {
+                "name": "xstate.init",
+                "data": {
+                  "type": "xstate.init"
+                },
+                "$$type": "scxml",
+                "type": "external"
+              },
+              "_sessionid": null,
+              "event": {
+                "type": "xstate.init"
+              },
+              "children": {
+                "loading": {
+                  "id": "loading"
+                }
+              },
+              "done": false,
+              "changed": true
+            },
+            "children": {
+              "loading": {
+                "id": "loading"
+              }
+            },
+            "done": false,
+            "changed": true
+          },
+          "segments": [
+            {
+              "state": {
+                "actions": [
+                  {
+                    "type": "xstate.start",
+                    "activity": {
+                      "id": "loading",
+                      "src": {
+                        "type": "loading"
+                      },
+                      "type": "xstate.invoke"
+                    }
+                  }
+                ],
+                "activities": {
+                  "loading": {
+                    "type": "xstate.start",
+                    "activity": {
+                      "id": "loading",
+                      "src": {
+                        "type": "loading"
+                      },
+                      "type": "xstate.invoke"
+                    }
+                  }
+                },
+                "meta": {
+                  "statemachine.loading": {}
+                },
+                "events": [],
+                "value": "loading",
+                "_event": {
+                  "name": "xstate.init",
+                  "data": {
+                    "type": "xstate.init"
+                  },
+                  "$$type": "scxml",
+                  "type": "external"
+                },
+                "_sessionid": null,
+                "event": {
+                  "type": "xstate.init"
+                },
+                "children": {
+                  "loading": {
+                    "id": "loading"
+                  }
+                },
+                "done": false,
+                "changed": true
+              },
+              "event": {
+                "type": "error.platform.loading"
+              },
+              "description": "state: \"loading\" "
+            }
+          ],
+          "weight": 1,
+          "description": "via error.platform.loading"
+        }
+      ],
+      "description": "reaches state: \"failure\" "
+    }
+  ]

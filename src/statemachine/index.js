@@ -1,56 +1,37 @@
-import { Machine } from "xstate";
+import { assign} from "xstate";
 
 export const machineDeclaration = {
   id: "statemachine",
   initial: "idle",
+  context: {
+    name: null
+  },
   states: {
     idle: {
       always: [
         {
           target: "loading"
         }
-      ],
-      meta: {
-        test: async ({ getByTestId }) => {
-          expect(getByTestId("current_state")).toHaveTextContent("idle");
-        }
-      }
+      ]
     },
     loading: {
       invoke: {
         id: "loading",
         src: "loading",
         onDone: {
-          target: "success"
+          target: "success",
+          actions: assign({
+            name: (context, event) => event?.data?.name
+          })
         },
         onError: {
           target: "failure"
         }
       },
-      meta: {
-        test: async ({ findByText, getByTestId }) => {
-          expect(await findByText("loading")).toBeVisible();
-          expect(getByTestId("current_state")).toHaveTextContent("loading");
-        }
-      }
     },
     success: {
-      meta: {
-        test: async ({ findByText, getByTestId }) => {
-          expect(await findByText("success")).toBeVisible();
-          expect(getByTestId("current_state")).toHaveTextContent("success");
-        }
-      }
     },
     failure: {
-      meta: {
-        test: async ({ findByText, getByTestId }) => {
-          expect(await findByText("failure")).toBeVisible();
-          expect(getByTestId("current_state")).toHaveTextContent("failure");
-        }
-      }
     }
   }
 };
-
-export const stateMachine = Machine(machineDeclaration);
