@@ -11,6 +11,17 @@ export const defaultHandler = () => {
   });
 };
 
+export const initialHandler = () => {
+  return rest.get("/init", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        name: "init"
+      })
+    );
+  });
+};
+
 export const differentNameHandler = () => {
   return rest.get("/users/davidorchard", (req, res, ctx) => {
     return res(
@@ -31,5 +42,6 @@ export const errorHandler = () => {
 };
 
 export const handlers = [
-  defaultHandler()
+  defaultHandler(),
+  initialHandler()
 ];

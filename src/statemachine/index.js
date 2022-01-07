@@ -1,18 +1,32 @@
 import { assign} from "xstate";
 
+// https://stately.ai/viz/72380040-fa65-440a-931b-692ea5af117f
+
 export const machineDeclaration = {
   id: "statemachine",
   initial: "idle",
   context: {
-    name: null
+    name: ''
   },
   states: {
     idle: {
       always: [
         {
-          target: "loading"
-        }
+          target: "checking"
+        },
       ]
+    },
+    checking: {
+      invoke: {
+        id: "checking",
+        src: "checking",
+        onDone: {
+          target: "loading",
+        },
+        onError: {
+          target: "failure",
+        },
+      },
     },
     loading: {
       invoke: {
