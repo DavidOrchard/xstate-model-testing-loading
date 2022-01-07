@@ -19,12 +19,12 @@ machineDeclaration.states.idle.meta = {
   }
 };
 
-// machineDeclaration.states.checking.meta = {
-//   test: async ({ findByText, getByTestId }) => {
-//     expect(await findByText("waiting")).toBeVisible();
-//     expect(await findByText("init")).toBeVisible();
-//   }
-// };
+machineDeclaration.states.checking.meta = {
+  test: async ({ findByText, getByTestId }) => {
+    expect(await findByText("waiting")).toBeVisible();
+    expect(await findByText("init")).toBeVisible();
+  }
+};
 machineDeclaration.states.loading.meta = {
   test: async ({ findByText, getByTestId }) => {
     expect(await findByText("init")).toBeVisible();
@@ -127,7 +127,9 @@ const stateMachineModel = createModel(
 });
 
 describe("StateMachine", () => {
-  const testPlans = stateMachineModel.getShortestPathPlans({filter: (state) => {
+  // getShortestPathPlans succeeds 4/4 tests
+  // simple only succeeds 2/5 tests.
+  const testPlans = stateMachineModel.getSimplePathPlans({filter: (state) => {
     // console.log(state);
     // can't seem to skip checking state
     return !!state.meta;
